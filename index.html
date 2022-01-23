@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Popup</title>
+    <style>
+      .container {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+      }
+      .container#blur.active {
+        filter: blur(20px);
+        transition: 0.2s;
+      }
+      img {
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 1rem;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+      }
+      a {
+        margin-top: 20px;
+        border: 1px solid rgb(209, 122, 122);
+        padding: 5px 20px;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        color: rgb(17, 13, 13);
+      }
+      a:hover {
+        background-color: rgb(57, 133, 161);
+        color: rgb(32, 30, 30);
+        transition: 0.4s;
+      }
+
+      #popup {
+        position: fixed;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        background-color: #fff;
+        width: 400px;
+        height: 300px;
+        padding: 50px;
+        border-radius: 5px;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s;
+        box-shadow: 0px 3px 3px #ddd;
+      }
+      #popup.active {
+        top: 50%;
+        visibility: visible;
+        opacity: 1;
+        transition: 0.5s;
+      }
+
+      #edit-box {
+        padding: 5px 20px;
+        border: 1px solid palevioletred;
+        outline: none;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" id="blur">
+      <p id="place">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+        Veritatis laborum nam tenetur repudiandae laboriosam aperiam vel <br />
+        accusantium doloribus dolore rem sit molestias non, <br />
+        ducimus dicta earum expedita quam qui soluta
+      </p>
+      <img
+        src="https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        alt="pc"
+      />
+      <br />
+      <a onclick="toggle()">Edit</a>
+    </div>
+
+    <div id="popup">
+      <h1>Today I'll show how to make popup menu</h1>
+      <input type="text" id="edit-box" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.<br />
+        Assumenda omnis temporibus mollitia nihil perspiciatis rem iusto<br />
+        repellendus necessitatibus veritatis. Inventore ut laborum illo
+        <br />itaque aliquid quibusdam excepturi eveniet officia libero.
+      </p>
+      <a onclick="toggle()">Close</a>
+    </div>
+
+    <script>
+      function toggle() {
+        let blur = document.getElementById("blur");
+        blur.classList.toggle("active");
+        let popup = document.querySelector("#popup");
+        popup.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
